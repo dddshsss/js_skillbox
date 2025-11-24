@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина товаров</title>
+    <style>
+        /* Немного стилей для красоты (не обязательно для задания, но полезно) */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .cart-item {
+            list-style-type: disc;
+            margin-bottom: 5px;
+        }
+        button {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Каталог товаров</h1>
+    <ul id="product-list">
+        <li>
+            <span>Товар 1</span>
+            <!-- В HTML уже прописан вызов функции addToCart с названием товара -->
+            <button onclick="addToCart('Товар 1')">Добавить в корзину</button>
+        </li>
+        <li>
+            <span>Товар 2</span>
+            <button onclick="addToCart('Товар 2')">Добавить в корзину</button>
+        </li>
+        <li>
+            <span>Товар 3</span>
+            <button onclick="addToCart('Товар 3')">Добавить в корзину</button>
+        </li>
+    </ul>
+
+    <h2>Корзина</h2>
+    <ul id="cart">
+        <!-- Сюда будут добавляться товары -->
+    </ul>
+
+    <script>
+        // Функция, которая вызывается при клике (указана в onclick атрибуте кнопок)
+        function addToCart(productName) {
+            // 1. Находим контейнер корзины (элемент <ul> с id="cart")
+            const cart = document.querySelector('#cart');
+
+            // 2. Создаем новый элемент списка (<li>)
+            const newItem = document.createElement('li');
+
+            // 3. Создаем текстовый узел с названием товара и добавляем его в <li>
+            // (Можно использовать textContent, но задание предлагает createTextNode и append)
+            const textNode = document.createTextNode(productName);
+            newItem.append(textNode);
+            
+            // Альтернативный способ (более короткий):
+            // newItem.textContent = productName;
+
+            // 4. Добавляем класс новому элементу (для демонстрации работы classList)
+            newItem.classList.add('cart-item');
+
+            // 5. Добавляем созданный элемент <li> внутрь корзины <ul>
+            cart.append(newItem);
+        }
+    </script>
+
+</body>
+</html>
