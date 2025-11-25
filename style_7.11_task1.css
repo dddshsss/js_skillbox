@@ -1,0 +1,68 @@
+/* Базовые настройки шрифта */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 40px; /* Отступ от края браузера */
+    color: #000;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+/* Обертка для кнопок, чтобы они стояли рядом */
+.buttons-wrapper {
+    margin-bottom: 30px;
+}
+
+/* Общий стиль кнопок */
+.btn {
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px; /* Скругление углов */
+    display: inline-block;
+}
+
+/* Зеленая кнопка */
+.btn-green {
+    background-color: #499c42; /* Цвет как на скриншоте */
+    margin-right: 10px; /* Отступ между кнопками */
+}
+
+.btn-green:hover {
+    background-color: #3e8538;
+}
+
+/* Синяя кнопка */
+.btn-blue {
+    background-color: #234bc8; /* Цвет как на скриншоте */
+}
+
+.btn-blue:hover {
+    background-color: #1a3ba0;
+}
+
+/* Список книг */
+.book-list {
+    list-style-type: none; /* Убираем стандартные точки */
+    padding: 0;
+    margin: 0;
+}
+
+.book-list li {
+    font-size: 18px;
+    margin-bottom: 10px; /* Отступ между строками книг */
+    padding: 5px;
+    border-radius: 3px;
+}
+
+/* Класс для подсветки найденной книги (желтый фон) */
+.highlight {
+    background-color: #ffeb3b;
+    font-weight: bold;
+}
