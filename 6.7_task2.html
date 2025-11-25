@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск Min и Max</title>
+</head>
+<body>
+
+    <h1>Поиск минимального и максимального числа</h1>
+    
+    <p class="all-elements"></p>
+    
+    <button class="min">Найти минимальное число</button>
+    <button class="max">Найти максимальное число</button>
+    
+    <p>Минимальное число: <span class="minNumber"></span></p>
+    <p>Максимальное число: <span class="maxNumber"></span></p>
+
+    <script>
+        // 1. Создаем массив чисел
+        const numbers = [12, 5, 8, 20, 3, 16];
+
+        // 2. Находим элементы на странице
+        const allElementsContainer = document.querySelector('.all-elements');
+        const minButton = document.querySelector('.min');
+        const maxButton = document.querySelector('.max');
+        const minOutput = document.querySelector('.minNumber');
+        const maxOutput = document.querySelector('.maxNumber');
+
+        // 3. Выводим все элементы массива на страницу через запятую
+        // Используем цикл for, как сказано в условии
+        for (let i = 0; i < numbers.length; i++) {
+            // Добавляем текущее число и запятую с пробелом
+            allElementsContainer.textContent += numbers[i] + ', ';
+        }
+
+        // 4. Логика поиска МИНИМАЛЬНОГО числа при клике
+        minButton.addEventListener('click', function() {
+            // Берем первый элемент массива за "текущий минимум"
+            let currentMin = numbers[0];
+
+            // Пробегаем по всему массиву
+            for (let i = 0; i < numbers.length; i++) {
+                // Если текущее число меньше нашего записанного минимума
+                if (numbers[i] < currentMin) {
+                    // Обновляем минимум
+                    currentMin = numbers[i];
+                }
+            }
+            // Выводим результат в span
+            minOutput.textContent = currentMin;
+        });
+
+        // 5. Логика поиска МАКСИМАЛЬНОГО числа при клике
+        maxButton.addEventListener('click', function() {
+            // Берем первый элемент массива за "текущий максимум"
+            let currentMax = numbers[0];
+
+            // Пробегаем по всему массиву
+            for (let i = 0; i < numbers.length; i++) {
+                // Если текущее число больше нашего записанного максимума
+                if (numbers[i] > currentMax) {
+                    // Обновляем максимум
+                    currentMax = numbers[i];
+                }
+            }
+            // Выводим результат в span
+            maxOutput.textContent = currentMax;
+        });
+    </script>
+
+</body>
+</html>
