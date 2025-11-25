@@ -1,0 +1,54 @@
+body {
+    background-color: #222; /* Темный фон */
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Стили для контейнера миниатюр */
+.thumbnails {
+    display: flex;
+    gap: 15px; /* Расстояние между картинками */
+}
+
+/* Стили для самих миниатюр */
+.thumb {
+    width: 150px;
+    height: 100px;
+    object-fit: cover; /* Чтобы картинка не сплющивалась */
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+/* Блок для большого изображения */
+.preview {
+    width: 600px;
+    min-height: 400px;
+    background-color: #333; /* Фон плейсхолдера */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #444;
+}
+
+/* Само большое изображение */
+#full-image {
+    max-width: 100%;
+    max-height: 100%;
+    display: none; /* Скрыто, пока не выбрано */
+}
+
+/* Текст подсказки */
+#placeholder-text {
+    color: #888;
+}
