@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Карточка формы */
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Чтобы padding не ломал ширину */
+}
+
+/* Чекбокс */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.inline-label {
+    display: inline;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+/* Кнопки */
+button {
+    padding: 8px 15px;
+    cursor: pointer;
+    background-color: #e0e0e0; /* Светло-серый как на макете */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #d0d0d0;
+}
+
+/* Скрытие элементов */
+.hidden {
+    display: none;
+}
+
+/* Ошибки валидации */
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: none;
+}
+
+/* Сортировка */
+.sort-container {
+    margin-bottom: 10px;
+}
+
+#sort-select {
+    padding: 5px;
+    margin-right: 5px;
+}
+
+/* Таблица */
+.movies-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.movies-table thead {
+    background-color: #333;
+    color: #fff;
+}
+
+.movies-table th, 
+.movies-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.movies-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Кнопки в таблице */
+.action-btn {
+    margin-right: 5px;
+}
