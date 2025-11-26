@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ввод промокода</title>
+    <style>
+        /* --- Стилизация страницы --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #dce1e5;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Карточка-контейнер */
+        .promo-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 380px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Форма (ряд: инпут + кнопка) */
+        .promo-form {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        /* Поле ввода */
+        .promo-input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            color: #333; /* Обычный цвет текста */
+            transition: all 0.3s;
+        }
+
+        .promo-input:focus {
+            border-color: #5c9aff;
+        }
+
+        /* --- Стиль инпута при успехе (зеленый текст) --- */
+        .promo-input.success {
+            color: #008000; /* Текст становится зеленым */
+        }
+
+        /* Кнопка */
+        .promo-btn {
+            background-color: #4a90e2; /* Ярко-синий как на скрине */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .promo-btn:hover {
+            background-color: #357abd;
+        }
+
+        /* --- Текст сообщения под формой --- */
+        .message-text {
+            display: none; /* Скрыто по умолчанию */
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold; /* Жирный шрифт */
+            color: #008000;    /* Зеленый цвет */
+        }
+
+        /* Класс для отображения сообщения */
+        .message-text.visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="promo-card">
+        <form id="promoForm" class="promo-form">
+            <input type="text" id="promoInput" class="promo-input" placeholder="ПРОМОКОД" autocomplete="off">
+            <button type="submit" class="promo-btn">Применить</button>
+        </form>
+        
+        <!-- Сообщение под кнопками -->
+        <div id="promoMessage" class="message-text"></div>
+    </div>
+
+    <script>
+        // 1. Данные промокода
+        const promocodeObj = {
+            promocode: "PROM50",
+            gift: "Скидка 50%"
+        };
+
+        // 2. DOM элементы
+        const form = document.getElementById('promoForm');
+        const input = document.getElementById('promoInput');
+        const messageBox = document.getElementById('promoMessage');
+
+        // 3. Получение куки
+        function getCookie() {
+            return document.cookie.split('; ').reduce((acc, item) => {
+                const [name, value] = item.split('=');
+                if (name && value) {
+                    acc[name] = value;
+                }
+                return acc;
+            }, {});
+        }
+
+        // 4. Функция успешной активации
+        function activatePromoUI(giftText) {
+            // Добавляем класс успеха инпуту (делает текст зеленым)
+            input.classList.add('success');
+            
+            // Формируем текст сообщения
+            messageBox.textContent = `Промокод применён. ${giftText}`;
+            
+            // Показываем сообщение
+            messageBox.classList.add('visible');
+        }
+
+        // 5. Функция сброса (если код неверный)
+        function resetPromoUI() {
+            input.classList.remove('success');
+            messageBox.classList.remove('visible');
+            messageBox.textContent = '';
+        }
+
+        // 6. Проверка куки при загрузке
+        const cookies = getCookie();
+        if (cookies.promocode === promocodeObj.promocode) {
+            input.value = promocodeObj.promocode;
+            activatePromoUI(promocodeObj.gift);
+        }
+
+        // 7. Обработка отправки формы
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const userCode = input.value.trim().toUpperCase();
+
+            if (userCode === promocodeObj.promocode) {
+                // УСПЕХ
+                activatePromoUI(promocodeObj.gift);
+                // Сохраняем в куки
+                document.cookie = `promocode=${promocodeObj.promocode}; max-age=3600; path=/`;
+            } else {
+                // ОШИБКА
+                resetPromoUI();
+                // Опционально: можно очистить поле или показать ошибку
+                // input.value = ''; 
+            }
+        });
+    </script>
+</body>
+</html>
