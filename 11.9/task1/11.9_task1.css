@@ -1,0 +1,110 @@
+body {
+    font-family: 'Times New Roman', sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Общие отступы для групп */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Общие стили лейблов (обычный шрифт) */
+label {
+    display: block; 
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+/* --- Настройки для строки с рейтингом --- */
+.rating-row {
+    display: flex;          /* Элементы в одну строку */
+    align-items: center;    /* Центрирование по вертикали */
+}
+
+.rating-row label {
+    margin-bottom: 0;       /* Убираем нижний отступ у надписи */
+    margin-right: 10px;     /* Отступ справа до ползунка */
+}
+
+.rating-row input[type="range"] {
+    margin: 0;              /* Убираем лишние отступы у ползунка */
+    cursor: pointer;
+}
+
+.rating-row span {
+    margin-left: 10px;      /* Отступ для цифры значения */
+    font-weight: bold;
+}
+/* ---------------------------------------- */
+
+
+/* Поля ввода */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+/* Радиокнопки и чекбоксы */
+.radio-group label,
+.checkbox-group label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* Ошибки */
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none; 
+    margin-top: 5px;
+}
+
+input.error {
+    border-color: red;
+    background-color: #fff0f0;
+}
+
+/* Кнопка */
+button {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Результаты */
+#result-container {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    display: none;
+}
+
+#result-container h2 {
+    margin-top: 0;
+    font-weight: bold;
+}
