@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  background: #f5f1ff;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+/* ряд изображений */
+.images-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.images-row img {
+  width: 260px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* прогресс-бар */
+
+.progress-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.progress-bar {
+  height: 20px;
+  width: 100%;
+  background-color: #5555cc;
+  border-radius: 10px;
+  transform-origin: left center;
+  transform: scaleX(0); /* старт с нулевой ширины */
+}
+
+.progress-time {
+  margin-top: 8px;
+  font-size: 16px;
+}
